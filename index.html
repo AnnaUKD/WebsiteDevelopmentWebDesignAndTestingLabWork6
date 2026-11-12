@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практична робота №6 — Screen States</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <h1>Corse caralogue</h1>
+    <div class="app-header__actions">
+      <a class="link" href="ui-kit.html">UI-Kit</a>
+      <button id="theme-toggle" class="btn" type="button">Dark Theme</button>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="switcher-title">
+    <div>
+      <p id="switcher-title" class="switcher-title">Screen status check</p>
+      <div class="switcher">
+        <button class="btn" type="button" data-set-state="content">Data</button>
+        <button class="btn" type="button" data-set-state="loading">Downloads</button>
+        <button class="btn" type="button" data-set-state="empty">Empty</button>
+        <button class="btn" type="button" data-set-state="error">Error</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="filter">Search by name</label>
+      <input id="filter" type="search" placeholder="For example, Python" autocomplete="off">
+    </div>
+    <button id="refresh" class="btn btn--primary" type="button">Update</button>
+  </section>
+
+  <main aria-live="polite">
+    <div data-state="loading" class="skeleton-list is-hidden" aria-busy="true">
+      <div class="skeleton-card"><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--text"></div><div class="skeleton skeleton--text-short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--text"></div><div class="skeleton skeleton--text-short"></div></div>
+      <div class="skeleton-card"><div class="skeleton skeleton--title"></div><div class="skeleton skeleton--text"></div><div class="skeleton skeleton--text-short"></div></div>
+    </div>
+
+    <div data-state="content" class="is-hidden">
+      <ul id="list" class="card-list"></ul>
+    </div>
+
+    <div data-state="empty" class="state-box is-hidden">
+      <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 13l3-8h12l3 8v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z"/><path d="M3 13h5l1 3h6l1-3h5"/>
+      </svg>
+      <h2>Nothing found</h2>
+      <p id="empty-text"></p>
+      <button id="empty-action" class="btn btn--primary" type="button">Restore list</button>
+    </div>
+
+    <div data-state="error" class="state-box state-box--error is-hidden">
+      <svg class="state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><path d="M12 16.5v.01"/>
+      </svg>
+      <h2>It's impossible to load courses</h2>
+      <p>Error 503: server is temporarily. Check connection and try again</p>
+      <button id="retry" class="btn btn--primary" type="button">Retry</button>
+    </div>
+  </main>
+</div>
+
+<template id="card-template">
+  <li class="card">
+    <div class="card__head">
+      <h2 class="card__title"></h2>
+      <button class="btn btn--danger card__delete" type="button">Delete</button>
+    </div>
+    <p class="card__tag"></p>
+    <p class="card__text"></p>
+  </li>
+</template>
+
+<script src="theme.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

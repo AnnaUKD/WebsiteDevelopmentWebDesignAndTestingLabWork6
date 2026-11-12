@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI-Kit — Lab Work №6</title>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <h1>UI-Kit</h1>
+    <div class="app-header__actions">
+      <a class="link" href="index.html">Catalogue</a>
+      <button id="theme-toggle" class="btn" type="button">Dark Theme</button>
+    </div>
+  </header>
+  <p>Click theme button: all components will update, but their classes are not changing — only semantic tokens too. States Hover and Focus are shown with static classes <code>.is-hover</code> and <code>.is-focus</code>.</p>
+
+  <section class="kit-section" aria-labelledby="kit-buttons">
+    <h2 id="kit-buttons">Buttons</h2>
+    <div class="kit-row">
+        <div class="kit-cell"><button class="btn btn--primary" type="button">Primary</button><span class="kit-caption">Default</span></div>
+        <div class="kit-cell"><button class="btn btn--primary is-hover" type="button">Primary</button><span class="kit-caption">Hover</span></div>
+        <div class="kit-cell"><button class="btn btn--primary is-focus" type="button">Primary</button><span class="kit-caption">Focus</span></div>
+        <div class="kit-cell"><button class="btn btn--primary" type="button" disabled>Primary</button><span class="kit-caption">Disabled</span></div>
+        <div class="kit-cell"><button class="btn btn--secondary" type="button">Secondary</button><span class="kit-caption">Default</span></div>
+        <div class="kit-cell"><button class="btn btn--secondary is-hover" type="button">Secondary</button><span class="kit-caption">Hover</span></div>
+        <div class="kit-cell"><button class="btn btn--secondary is-focus" type="button">Secondary</button><span class="kit-caption">Focus</span></div>
+        <div class="kit-cell"><button class="btn btn--secondary" type="button" disabled>Secondary</button><span class="kit-caption">Disabled</span></div>
+        <div class="kit-cell"><button class="btn btn--danger" type="button">Danger</button><span class="kit-caption">Default</span></div>
+        <div class="kit-cell"><button class="btn btn--danger is-hover" type="button">Danger</button><span class="kit-caption">Hover</span></div>
+        <div class="kit-cell"><button class="btn btn--danger is-focus" type="button">Danger</button><span class="kit-caption">Focus</span></div>
+        <div class="kit-cell"><button class="btn btn--danger" type="button" disabled>Danger</button><span class="kit-caption">Disabled</span></div>
+    </div>
+  </section>
+
+  <section class="kit-section" aria-labelledby="kit-inputs">
+    <h2 id="kit-inputs">Text fields</h2>
+    <div class="kit-row">
+      <div class="field"><label for="in-default">Default</label><input id="in-default" type="text" placeholder="Name"></div>
+      <div class="field"><label for="in-hover">Hover</label><input id="in-hover" class="is-hover" type="text" placeholder="Name"></div>
+      <div class="field"><label for="in-focus">Focus</label><input id="in-focus" class="is-focus" type="text" placeholder="Name"></div>
+      <div class="field"><label for="in-disabled">Disabled</label><input id="in-disabled" type="text" placeholder="Name" disabled></div>
+      <div class="field field--error">
+        <label for="in-error">Error</label>
+        <input id="in-error" type="email" value="anna@" aria-invalid="true" aria-describedby="in-error-msg">
+        <p id="in-error-msg" class="field__error">Enter valid email</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="kit-section" aria-labelledby="kit-cards">
+    <h2 id="kit-cards">Content card</h2>
+    <div class="kit-cards">
+      <article class="card">
+        <div class="card__head"><h3 class="card__title">JavaScript for starters</h3></div>
+        <p class="card__tag">Frontend</p>
+        <p class="card__text">Variables, functions, DOM and events.</p>
+        <p class="status status--success">Course saved</p>
+        <button class="btn btn--primary" type="button">More</button>
+      </article>
+      <article class="card card--error">
+        <div class="card__head"><h3 class="card__title">Data base and SQL</h3></div>
+        <p class="card__tag">Data</p>
+        <p class="card__text">Tables, requests SELECT, connections.</p>
+        <p class="status status--error">Imposible to save variable</p>
+        <button class="btn btn--danger" type="button">Try again</button>
+      </article>
+    </div>
+  </section>
+</div>
+<script src="theme.js"></script>
+</body>
+</html>
